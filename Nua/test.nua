@@ -1,0 +1,9 @@
+!meta Circle<PosX, PosY, Radius, ColorR, ColorG, ColorB>
+
+!Circle:DoubleRad() {
+	self.Radius = self.Radius * 2
+}
+
+!Circle:HalfRaf() {
+	self.Radius = self.Radius / 2
+}

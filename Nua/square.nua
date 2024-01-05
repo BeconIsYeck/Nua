@@ -1,0 +1,3 @@
+!speak() {
+	io.write("prantf")
+}

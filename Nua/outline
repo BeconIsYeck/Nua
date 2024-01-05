@@ -1,0 +1,23 @@
+TODO:
+	try-catch syntax
+	Nuau
+	cli documentation
+	LOVE support
+	namespace
+	work on anonymous functions more
+
+DONE:
+	rtc bin support
+	all around table-0 support
+	switch-case statements
+	fixed continue gotos
+
+OPT:
+	Program.cs           - Required
+	Nua.cs               - Required
+	StatementAnalyzer.cs - Split
+
+	Lexer.cs             - Nonoptimal
+
+	Expressions.cs       - Useless
+	Tree.cs              - Useless
