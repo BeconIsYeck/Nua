@@ -1,0 +1,87 @@
+Assignment Operators
+	=
+	+=
+	-=
+	*=
+	/=
+	%=
+	^=
+	..=
+
+Logical Operators
+	||
+	&&
+	!
+
+Comparison Operators
+	>
+	<
+	==
+	>=
+	<=
+	!=
+
+Variable
+
+	<!>local <id> = <val>
+	<!>global <id> = <val>
+
+	<id> <Assignment Operator> <val>
+
+	<Variable Declaration> ::= 'local' Identifier '=' <Expression>
+							| 'global' Identifier '=' <Expression>
+							| '!' 'local' Identifier '=' <Expression>
+							| '!' 'global' Identifier '=' <Expression>
+
+	<Variable Modifiy> ::= Identifier <Assignment Operator> <Expression>
+
+Loops
+
+	while (<condition>) {...}
+
+	for (<id>):[<x>, <y>, <z>] {...}
+	for (<idx>, <idy>):[<t>] {...}
+
+	repeat {...} until (<condition>)
+
+	break
+	continue
+
+
+	<While Loop> ::= 'while' '(' <Expression> ')' <Expression>
+
+	<For loop> ::= 'for' '(' Identifier ')' ':' '[' <Expression> <Expression> <Expression> ']' <Expression Block>
+				|  'for' '(' Identifier ')' ':' '[' <Expression> <Expression> ']' <Expression Block>
+				|  'for' '(' Identifier ',' Identifier ')' ':' '[' <Expression> ']' <Expression Block>
+
+
+Statements
+
+	if (<condition>) {...}
+	elseif (<condition>) {...}
+	else {...}
+	
+	switch (<id>) {
+		case (<val>) {...}
+		default {...}
+	}
+
+	<If-Else Statement> ::= 'if' '(' <Conditional Statement> ')' <Expression Block>
+						|   'if' '(' <Conditional Statement> ')' <Expression Block> 'else' <Expression Block>
+
+Functions
+
+	<!><name>(<params>) {...}
+
+	return
+	return <val>
+
+Metas
+
+	<!>meta <name> {
+		new(<params>) {
+			self.<property> = <param>
+		}
+
+		method() {...}
+	}

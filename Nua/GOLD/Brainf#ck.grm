@@ -1,0 +1,96 @@
+! ---------------------------------------------------------------------------
+!
+! Brainf#ck
+!
+!
+! As legend states, the Brainf#ck Programming Language (also called BF by 
+! those not wanting to curse) was created by Urban Mueller in 1993.
+! The language was designed, in part, so Mueller could create the smallest 
+! compiler ever. The first BF compiler was written for the Commodore Amiga 
+! OS 2.0 and was only 240 bytes in size. 
+! 
+! BF is a Turing-complete language. This means that any BF program can be 
+! proved to be equivalent to a Turing Machine. 
+! 
+! The system consists of an continuous array of 30,000 bytes (more can be 
+! added of course, but this is the standard size). Each cell is accessed 
+! through a single, global, pointer that can either move forward or backward 
+! on the array. The content of each cell can be modified by either reading a 
+! new byte from standard input or by incrementing or decrementing the 
+! current value. The array is initialized with zeroes. 
+! 
+! 
+! The BF Programming Language only consists of 8 different instructions: 
+! 
+!    >    Increment the pointer 
+!    <    Decrement the pointer 
+!    
+!    +    Add 1 to the current cell 
+!    -    Substract 1 from current cell 
+!    
+!    .    Print the current cell to the screen using its ASCII value. 
+!    ,    Read a character and store its ASCII value in the current cell 
+!    
+!    [    Jump forward past the corresponding ] if the current byte is zero 
+!    ]    Jump back to the statement after the corresponding [ if the
+!         current cell is not zero. 
+! 
+! In reality, the BF Programming Language is not that different from ANSI C. 
+! Each of the 8 instructions can be substituted for C statements and 
+! language constructs. 
+!   
+!    >    becomes    p++; 
+!    <    becomes    p--; 
+!    +    becomes    *p++; 
+!    -    becomes    *p--; 
+!    .    becomes    putchar(*p); 
+!    ,    becomes    *p = getchar(); 
+!    
+!    [    becomes    while (*p) {    ... 
+!    ]    becomes    }  
+! 
+! 
+! BF also treats all characters that are not the 8 basic commands as 
+! comments. In the grammar below, Whitespace is defined to include all the 
+! printable characters - with the exception of the statements. 
+! 
+! Please see http://en.wikipedia.org/wiki/Brainfuck for more information
+! 
+! PLEASE NOTE: This grammar was created for fun. If you want to create a BF 
+!              parser, it is far easier (and much more efficient) to write 
+!              one manually.
+!
+! ---------------------------------------------------------------------------
+
+
+"Name"     = 'Brainf#ck'
+"Author"   = 'Urban Mueller'
+"Version"  = '1993'
+
+"About"    = 'Brainf#ck was created by Urban Mueller with the goal to build'
+           | 'the smallest compiler ever.'
+
+"Start Symbol" = <Instructions>
+
+! ============================================== Comments 
+
+{WS} = {Printable} - [<>+-.,'['']'] 
+
+Whitespace = {WS}+
+
+
+! ============================================== Statements
+
+<Instructions> ::= <Instructions> <Instruction>
+                 | 
+
+
+<Instruction>  ::= '>'                     ! Increment p
+                 | '<'                     ! Decrement p
+                 | '+'                     ! Increment a[p]
+                 | '-'                     ! Decrement a[p]
+                 | '.'                     ! Output a[p]
+                 | ','                     ! Input a[p]
+                 | '[' <Instructions> ']'
+                 
+              

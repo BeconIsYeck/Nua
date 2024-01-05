@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "yRjw3jUF357hKS8OdVmZ58/KzVo8K464WQdsgXo5fmewYbYcAbu4aR4/Rl6NnQ4zg5wWXqZOERgp0jOXtF0UYg==",
+  "success": true,
+  "projectFilePath": "D:\\Dev\\src\\Nua\\Nua\\Nua.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\dj\\.nuget\\packages\\keralua\\1.3.4\\keralua.1.3.4.nupkg.sha512",
+    "C:\\Users\\dj\\.nuget\\packages\\nlua\\1.6.3\\nlua.1.6.3.nupkg.sha512"
+  ],
+  "logs": []
+}

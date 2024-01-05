@@ -1,0 +1,40 @@
+"Name" = 'JSON Grammar'
+"Version" = '1.0'
+"Author" = 'David'
+
+"About" = 'Test'
+
+Text = {Printable}
+Number = {Digit}
+Boolean = {true}
+        | {false}
+Null = {null}
+
+<JSON> ::= <Object>
+       | <Array>
+
+
+<Object> ::= '{' '}'
+         | '{' <Members> '}'
+
+<Array> ::= '[' ']'
+        | '[' <Object> ']'
+        | '[' <Elements> ']'
+
+
+<Members> ::= <Member>
+          | <Member> ',' <Members>
+
+<Member> ::= Text ':' <Value>
+
+
+<Elements> ::= <Value>
+          | <Value> ',' <Elements>
+
+
+<Value> ::= Text
+        | Number
+        | <Object>
+        | <Array>
+        | Boolean
+        | Null

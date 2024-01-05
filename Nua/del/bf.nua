@@ -1,0 +1,103 @@
+dir<D:\Dev\src\Nua\Nua>
+
+table.mod(tab, pos, val) {
+	tab[pos] = val
+}
+
+table.pop(t) {
+	table.remove(t, #t)
+}
+
+table.push(t, n) {
+	table.insert(t, n)
+}
+
+// x += 1
+// x++
+// inc<>
+// acq<>
+// !main() {...}
+// /* */
+// repeat {...} until ()
+
+!bf(src) {
+	loc chars = {}
+		
+	loc data = {}
+	loc p = 0
+	
+	p = p + 1
+	p += 1
+	p++
+	
+	loc curLoop = {}
+	
+	for (i = 0, 1023) {
+		data[i] = 0
+	}
+	
+	for (i = 1, #src) {
+		table.insert(chars, src:sub(i, i))
+	}
+	
+	loc i = 1
+	
+	while (i <= #chars) {
+		loc op = chars[i]
+	
+		if (op == ">") {
+			p = p + 1
+		}
+		elseif (op == "<") {
+			p = p - 1
+		}
+		elseif (op == "+") {
+			table.mod(data, p, data[p] + 1)
+		}
+		elseif (op == "-") {
+			table.mod(data, p, data[p] - 1)
+		}
+		elseif (op == ".") {
+			print(data[p])
+		}
+		elseif (op == ",") {
+			table.mod(data, p, io.read("*n"))
+		}
+		elseif (op == "[") {
+			if (data[p] == 0) {
+				for (j = i, 
+				table.push(curLoop, i)
+				print("Skip Loop")
+			}
+			else {
+				table.push(curLoop, i)
+				print("Begin Loop")
+			}
+		}
+		elseif (op == "]") {
+			print("End loop")
+		}
+			
+		i = i + 1		
+	}
+	
+	//iforeach (i, v in data) {
+	//	print(i, v)
+	//}
+}
+
+!main() {
+	!bf("[+[+]]")
+	
+	
+	
+	print("Hello world!")
+	
+	loc a = "a";
+	
+	print(a)
+	
+	a ..= "b";
+	
+	print(a)
+}

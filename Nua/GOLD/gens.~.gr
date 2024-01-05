@@ -1,0 +1,9 @@
+"Name" = 'Gens File Format'
+"Version" = "0000"
+"Author" = 'David'
+"About" = 'Simple JSON alternative.'
+
+Comment Start = '~'
+Comment End = '|'
+
+<Command> ::=

@@ -1,0 +1,20 @@
+"Name" = 'Gens'
+"Version" = "1000"
+"Author" = 'David'
+"About" = ''
+
+"Case Sensitive" = "True"
+
+Comment Start = '~'
+Comment End = '|'
+
+String = {Printable}
+
+<Value> ::= '[' String ']'
+        | '[' String ']' ' ' <Value>
+
+<Tag> ::= String
+
+<Statement> ::= 'init>' <Tag> ';'
+            | 'init>' <Tag> '^' ';'
+            | 'make>' ':/' <Tag> '<' <Value> ';'

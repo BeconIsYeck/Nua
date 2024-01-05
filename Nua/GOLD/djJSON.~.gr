@@ -1,0 +1,20 @@
+"Name" = 'JSON Grammar'
+"Version" = '0000'
+"Author" = 'David'
+
+"About" = ''
+
+String = {Printable}
+Number = {Digit}
+
+<Brack Block> ::= '[' ']'
+              | '[' <Elements> ']'
+
+<Curly Block> ::= '{' '}'
+              | '{' <Elements> '}'
+
+<Element> ::= '"' String '"' ':' '"' String '"'
+          | '"' String '"' ':' <Brack Block>
+
+<Elements> ::= <Element>
+           | <Element> ',' <Elements>

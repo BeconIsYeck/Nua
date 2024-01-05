@@ -1,0 +1,22 @@
+"Name" = 'Nua Programming Language'
+"Version" = "0000"
+"Author" = 'David'
+
+"Case Sensitive" = 'True'
+
+Comment Start = '/*'
+Comment End   = '*/'
+Comment Line  = '//'
+
+
+NumberLiteral = {Digit}+
+StringLiteral  = '"'( {String Ch} | '\'{Printable} )* '"'
+
+<Literal> ::= true
+          | false
+          | NumberLiteral
+          | StringLiteral
+          | null
+
+<Arguments> ::= '(' ')'
+            |

@@ -1,0 +1,90 @@
+//-- Nua Standard Library --//
+// Written by David
+// 11/28/2023
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+// 
+
+//-- Init --//
+
+!nua = {}
+
+
+//-- Additions --//
+
+table.mod(tab, pos, val) {
+	tab[pos] = val
+}
+
+table.clear(tab) {
+	for (i = 1, #tab) {
+		tab[i] = nil
+	}
+}
+
+//-- Tables --//
+
+// IO
+
+!nua.io = {}
+
+!nua.io.sout(str) {
+	io.write(str)
+}
+
+!nua.io.cout(char) {
+	if (#char ~= 1) {
+		error("String is not char @!nua.io.cout")
+	}
+	else {
+		io.write(char)
+	}
+}
+
+!nua.io.sscan(para) {
+	if (para) {
+		return io.read(para)
+	}
+	else {
+		return io.read()
+	}
+}
+
+//- Metas --//
+
+// Stack
+
+!meta nua.stack*
+
+!nua.stack.new(t) {
+	loc self = setmetatable({}, !nua.stack)
+	
+	self.contents = {}
+	
+	loc validTypes = { "string", "number", "bool", "nil", "table" }
+	
+	self.type = t
+	
+	return self
+}
+
+!nua.stack:getcont() {
+	return self.contents
+}
+
+!nua.stack:push(value) {
+	self.contents[#self.contents + 1] = value
+}
+
+!nua.stack:pop() {
+	self.contents[#self.contents] = nil
+}
+
+!nua.stack:peek() {
+	return self.contents[#self.contents]
+}

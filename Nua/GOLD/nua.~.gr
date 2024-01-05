@@ -1,0 +1,9 @@
+"Name" = 'Nua Programming Language'
+"Version" = "0000"
+"Author" = 'David'
+
+"Case Sensitive" = 'True'
+
+Comment Start = '/*'
+Comment End   = '*/'
+Coomend Line  = '//'
